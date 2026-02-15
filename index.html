@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Safe model change in production</title>
+  <meta name="description" content="Canary/blue-green rollout, KPI gate, and 3-layer rollback for safe model changes in production." />
+  <style>
+    :root {
+      --bg: #081426;
+      --bg-soft: #0f1e36;
+      --card: #10233f;
+      --text: #ebf1ff;
+      --muted: #9ab0d4;
+      --line: #2a446f;
+      --brand: #3ddc97;
+      --brand-2: #27b4f5;
+      --warn: #ffcf66;
+      --danger: #ff6f6f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, #17345c, transparent 35%),
+        radial-gradient(circle at 90% 20%, #0d2f4e, transparent 30%),
+        linear-gradient(160deg, var(--bg), #060f1e 70%);
+      line-height: 1.45;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 28px 20px 64px; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      border: 1px solid var(--line); background: rgba(9, 22, 43, 0.65);
+      border-radius: 14px; padding: 12px 16px; backdrop-filter: blur(6px);
+    }
+    .brand { font-weight: 700; letter-spacing: .2px; }
+    .brand span { color: var(--brand); }
+    .links a { color: var(--muted); text-decoration: none; margin-left: 14px; font-size: 14px; }
+    .hero {
+      margin-top: 26px; padding: 34px;
+      border: 1px solid var(--line); border-radius: 18px;
+      background: linear-gradient(140deg, rgba(16, 35, 63, .95), rgba(9, 25, 48, .75));
+      position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ""; position: absolute; right: -80px; top: -80px;
+      width: 260px; height: 260px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(39, 180, 245, .3), transparent 65%);
+    }
+    h1 { margin: 0; font-size: clamp(30px, 4.2vw, 50px); line-height: 1.06; }
+    .hero p { margin-top: 14px; color: var(--muted); max-width: 730px; font-size: 18px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+    .btn {
+      display: inline-block; padding: 11px 16px; border-radius: 10px;
+      text-decoration: none; font-weight: 600; border: 1px solid transparent;
+    }
+    .btn.primary { background: linear-gradient(120deg, var(--brand), #16c47f); color: #052117; }
+    .btn.secondary { background: transparent; border-color: var(--line); color: var(--text); }
+
+    .section-title { margin: 34px 0 12px; font-size: 21px; }
+    .grid { display: grid; gap: 14px; }
+    .grid.use-cases { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .card {
+      border: 1px solid var(--line); border-radius: 14px;
+      background: linear-gradient(180deg, rgba(16, 35, 63, .95), rgba(8, 20, 38, .85));
+      padding: 16px;
+    }
+    .card h3 { margin: 0 0 6px; font-size: 18px; }
+    .meta { color: var(--muted); font-size: 14px; }
+
+    .proof {
+      border-left: 4px solid var(--brand-2);
+      padding: 14px 16px; margin-top: 8px;
+      background: rgba(13, 31, 58, .7); border-radius: 10px;
+    }
+
+    .flow { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+    .step {
+      border: 1px dashed var(--line); border-radius: 12px;
+      background: rgba(10, 23, 42, .7); padding: 12px;
+    }
+    .step strong { color: var(--brand); }
+
+    .footer { margin-top: 36px; color: var(--muted); font-size: 13px; text-align: center; }
+    code { color: var(--warn); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">ArtPulse <span>Risk Engine</span></div>
+      <div class="links">
+        <a href="https://api.wearetheartmakers.com/" target="_blank" rel="noreferrer">Live API</a>
+        <a href="https://api.wearetheartmakers.com/docs" target="_blank" rel="noreferrer">Docs</a>
+        <a href="https://api.wearetheartmakers.com/admin" target="_blank" rel="noreferrer">Ops</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <h1>Safe model change in production</h1>
+      <p>
+        Canary/blue-green rollout, KPI gate, and 3-layer rollback for crypto fraud/risk teams that cannot afford bad model releases.
+      </p>
+      <div class="cta">
+        <a class="btn primary" href="#scan">20 min technical risk scan</a>
+        <a class="btn secondary" href="https://api.wearetheartmakers.com/docs" target="_blank" rel="noreferrer">View live demo</a>
+      </div>
+    </section>
+
+    <h2 class="section-title">Use Cases</h2>
+    <div class="grid use-cases">
+      <article class="card">
+        <h3>Crypto (Fraud/Risk)</h3>
+        <p class="meta">Risk score and fraud alert prioritization.</p>
+        <p class="meta">KPI: false positives down, manual review time down, rollback time down.</p>
+      </article>
+      <article class="card">
+        <h3>Moderation</h3>
+        <p class="meta">Content classification and moderation queue priority.</p>
+        <p class="meta">KPI: moderation SLA, false block ratio, user complaint rate.</p>
+      </article>
+      <article class="card">
+        <h3>Creative</h3>
+        <p class="meta">Style/quality classification for media operations.</p>
+        <p class="meta">KPI: approval time, production throughput, quality consistency.</p>
+      </article>
+    </div>
+
+    <h2 class="section-title">How it works</h2>
+    <div class="flow">
+      <div class="step"><strong>1) Controlled rollout</strong><br/>Ship with <code>single/canary/blue_green</code> strategies.</div>
+      <div class="step"><strong>2) KPI gate</strong><br/>Evaluate <code>p95 + 5xx + drift</code> before promotion.</div>
+      <div class="step"><strong>3) Instant rollback</strong><br/>If gate fails: alias, traffic, or deployment rollback.</div>
+    </div>
+
+    <h2 class="section-title">Proof</h2>
+    <div class="proof">
+      <p><strong>Uptime policy:</strong> health/readiness checks every 1 minute (or best available free-plan interval), with Slack + email alerting.</p>
+      <p><strong>Operational proof:</strong> gate-fail-to-rollback drill and incident runbooks are part of the delivery package.</p>
+    </div>
+
+    <h2 id="scan" class="section-title">20-minute Technical Risk Scan</h2>
+    <div class="card">
+      <p>Output in one session:</p>
+      <ul>
+        <li>Risk heatmap (rollout, observability, drift/retrain, incident readiness, security).</li>
+        <li>Live gate fail -> rollback scenario walkthrough.</li>
+        <li>1-week pilot plan with measurable KPI targets.</li>
+      </ul>
+      <p><strong>Booking:</strong> Replace this with your Calendly/meeting link.</p>
+    </div>
+
+    <div class="footer">
+      © 2026 WeAreTheArtMakers. Built for production-safe ML operations.
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RiskScoreResponse",
+  "type": "object",
+  "required": ["risk_score", "decision", "model_uri", "rollout_route"],
+  "properties": {
+    "risk_score": {"type": "number", "minimum": 0, "maximum": 1},
+    "decision": {
+      "type": "string",
+      "enum": ["allow", "challenge", "hold", "deny"]
+    },
+    "reason_codes": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "model_uri": {"type": "string"},
+    "rollout_route": {"type": "string"},
+    "rollout_mode": {"type": "string"},
+    "request_id": {"type": "string"}
+  },
+  "additionalProperties": true
+}
