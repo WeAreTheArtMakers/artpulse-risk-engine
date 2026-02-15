@@ -68,6 +68,11 @@ Read: [docs/risk-scan-20min.md](docs/risk-scan-20min.md)
 5. Save
 
 Your page will publish from `index.html` at repository root.
+Current live URL: [https://wearetheartmakers.github.io/artpulse-risk-engine/](https://wearetheartmakers.github.io/artpulse-risk-engine/)
+
+Booking link update:
+- Open [index.html](index.html)
+- Change `BOOKING_URL` value near the bottom of the file.
 
 Additional assets:
 

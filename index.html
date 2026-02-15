@@ -149,12 +149,29 @@
         <li>Live gate fail -> rollback scenario walkthrough.</li>
         <li>1-week pilot plan with measurable KPI targets.</li>
       </ul>
-      <p><strong>Booking:</strong> Replace this with your Calendly/meeting link.</p>
+      <p>
+        <strong>Book now:</strong>
+        <a
+          class="btn primary"
+          data-booking-link
+          href="https://calendly.com/wearetheartmakers/20min-technical-risk-scan"
+          target="_blank"
+          rel="noreferrer"
+        >Book on Calendly</a>
+      </p>
+      <p class="meta">To change booking URL later: edit <code>BOOKING_URL</code> in this page.</p>
     </div>
 
     <div class="footer">
       © 2026 WeAreTheArtMakers. Built for production-safe ML operations.
     </div>
   </div>
+  <script>
+  // Update only this value if your Calendly link changes.
+  const BOOKING_URL = "https://calendly.com/wearetheartmakers/20min-technical-risk-scan";
+  document.querySelectorAll("[data-booking-link]").forEach((el) => {
+    el.setAttribute("href", BOOKING_URL);
+  });
+</script>
 </body>
 </html>
