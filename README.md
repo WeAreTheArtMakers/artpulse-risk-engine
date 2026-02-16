@@ -35,7 +35,8 @@ Model changes in production are risky. This project frames a safer operating mod
 
 - Landing: [https://api.wearetheartmakers.com/](https://api.wearetheartmakers.com/)
 - API Docs: [https://api.wearetheartmakers.com/docs](https://api.wearetheartmakers.com/docs)
-- Ops Console: [https://api.wearetheartmakers.com/admin](https://api.wearetheartmakers.com/admin)
+- Ops Viewer (`/admin`): [https://api.wearetheartmakers.com/admin](https://api.wearetheartmakers.com/admin)
+- Control Center (`/control`): [https://api.wearetheartmakers.com/control](https://api.wearetheartmakers.com/control)
 
 Demo flow:
 

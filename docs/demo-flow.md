@@ -4,7 +4,8 @@
 
 - Landing: `https://api.wearetheartmakers.com/`
 - Docs: `https://api.wearetheartmakers.com/docs`
-- Ops: `https://api.wearetheartmakers.com/admin`
+- Ops Viewer: `https://api.wearetheartmakers.com/admin`
+- Control Center: `https://api.wearetheartmakers.com/control`
 
 ## Demo steps
 
