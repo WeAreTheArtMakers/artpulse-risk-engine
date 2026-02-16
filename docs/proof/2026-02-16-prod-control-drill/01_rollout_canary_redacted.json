@@ -1,0 +1,25 @@
+{
+  "status": "ok",
+  "rollout": {
+    "mode": "canary",
+    "canary_percent": 10.0,
+    "blue_green_percent": 0.0,
+    "secondary_percent": 10.0,
+    "candidate_model_uri": "runs:/7e638e191ea44a298e59ffa1a87f7f72/model",
+    "candidate_alias": "challenger",
+    "active_color": "blue"
+  },
+  "model": {
+    "primary_uri": "runs:/7e638e191ea44a298e59ffa1a87f7f72/model",
+    "secondary_uri": "runs:/7e638e191ea44a298e59ffa1a87f7f72/model",
+    "secondary_model_loaded": true,
+    "secondary_load_error": "",
+    "load_error": ""
+  },
+  "runtime_overrides": {
+    "rollout_mode": "canary",
+    "canary_traffic_percent": 10.0,
+    "candidate_model_uri": "runs:/7e638e191ea44a298e59ffa1a87f7f72/model",
+    "blue_green_traffic_percent": 0.0
+  }
+}

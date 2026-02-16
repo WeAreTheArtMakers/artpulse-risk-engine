@@ -1,0 +1,5 @@
+API_URL=https://api.wearetheartmakers.com
+gate_passed=false
+rollback_applied=true
+rollback_changes={"canary_traffic_percent":0.0}
+final_mode=single

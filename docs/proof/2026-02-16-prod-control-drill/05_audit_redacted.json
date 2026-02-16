@@ -1,0 +1,65 @@
+{
+  "count": 10,
+  "events": [
+    {
+      "timestamp": "2026-02-16T04:00:27.381450+00:00",
+      "action": "rollout_update",
+      "status": "ok",
+      "path": "/ops/control/rollout"
+    },
+    {
+      "timestamp": "2026-02-16T04:00:27.622113+00:00",
+      "action": "gate_check",
+      "status": "ok",
+      "path": "/ops/control/gate-check"
+    },
+    {
+      "timestamp": "2026-02-16T04:00:28.484058+00:00",
+      "action": "emergency_rollback",
+      "status": "ok",
+      "path": "/ops/control/emergency-rollback"
+    },
+    {
+      "timestamp": "2026-02-16T04:05:47.682229+00:00",
+      "action": "rollout_update",
+      "status": "ok",
+      "path": "/ops/control/rollout"
+    },
+    {
+      "timestamp": "2026-02-16T04:10:27.182748+00:00",
+      "action": "rollout_update",
+      "status": "ok",
+      "path": "/ops/control/rollout"
+    },
+    {
+      "timestamp": "2026-02-16T04:16:39.984814+00:00",
+      "action": "gate_check",
+      "status": "ok",
+      "path": "/ops/control/gate-check"
+    },
+    {
+      "timestamp": "2026-02-16T04:16:48.576491+00:00",
+      "action": "gate_check",
+      "status": "ok",
+      "path": "/ops/control/gate-check"
+    },
+    {
+      "timestamp": "2026-02-16T04:28:49.286946+00:00",
+      "action": "rollout_update",
+      "status": "ok",
+      "path": "/ops/control/rollout"
+    },
+    {
+      "timestamp": "2026-02-16T04:28:50.682951+00:00",
+      "action": "gate_check",
+      "status": "failed",
+      "path": "/ops/control/gate-check"
+    },
+    {
+      "timestamp": "2026-02-16T04:28:51.682461+00:00",
+      "action": "rollout_update",
+      "status": "ok",
+      "path": "/ops/control/rollout"
+    }
+  ]
+}

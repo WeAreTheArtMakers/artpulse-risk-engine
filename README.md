@@ -80,3 +80,4 @@ Additional assets:
 - Go-to-market plan: [docs/go-to-market.md](docs/go-to-market.md)
 - Enhancements backlog: [docs/enhancements.md](docs/enhancements.md)
 - Risk API schemas: [schemas/risk-score-request.json](schemas/risk-score-request.json), [schemas/risk-score-response.json](schemas/risk-score-response.json)
+- Proof pack (prod drill): [docs/proof/2026-02-16-prod-control-drill/README.md](docs/proof/2026-02-16-prod-control-drill/README.md)

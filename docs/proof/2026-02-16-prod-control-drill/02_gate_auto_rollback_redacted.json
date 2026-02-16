@@ -1,0 +1,41 @@
+{
+  "gate": {
+    "timestamp": "2026-02-16T04:28:49.545827+00:00",
+    "passed": false,
+    "checks": {
+      "request_floor_met": true,
+      "p95_latency_ok": false,
+      "error_rate_ok": true,
+      "drift_score_ok": true
+    },
+    "thresholds": {
+      "min_request_count": 0,
+      "p95_latency_ms_max": 1.0,
+      "error_rate_max": 0.01,
+      "drift_score_max": 2.5
+    },
+    "observed": {
+      "request_count": 529,
+      "p95_latency_ms": 5.0,
+      "error_rate": 0.0,
+      "drift_score": 0.0
+    }
+  },
+  "rollback": {
+    "requested": true,
+    "applied": true,
+    "changes": {
+      "canary_traffic_percent": 0.0
+    },
+    "error": ""
+  },
+  "rollout": {
+    "mode": "canary",
+    "canary_percent": 0.0,
+    "blue_green_percent": 0.0,
+    "secondary_percent": 0.0,
+    "candidate_model_uri": "runs:/7e638e191ea44a298e59ffa1a87f7f72/model",
+    "candidate_alias": "challenger",
+    "active_color": "blue"
+  }
+}
